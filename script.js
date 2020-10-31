@@ -5,18 +5,18 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 // trying to use symbols that websites actually allow in passwords
 var sym = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", '\\', "]", "^", "_", "`", "{", "|", "}", "~"];
-var numbers = [0,1,2,3,4,5,6,7,8,9];
+var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 // Write password to the #password input
 function writePassword() {
-  
- 
+
+
   var passwordLength = prompt("Enter how long you want your password to be between 8-128 characters")
-  
+
   passwordLength = parseInt(passwordLength);
-  if (passwordLength >= 8 && passwordLength <= 128) {    
-  } 
+  if (passwordLength >= 8 && passwordLength <= 128) {
+  }
   else {
-    return alert("ERROR Please enter a number between 8 and 128");    
+    return alert("ERROR Please enter a number between 8 and 128");
   }
   var lowerC = confirm("Do you want lowercase letters?");
   var upperC = confirm("Do you want your password to have uppercase letters?");
@@ -24,8 +24,8 @@ function writePassword() {
   var symC = confirm("Do you want your password to have special characters?");
 
   var passArray = [];
-  
-  
+
+
   if (lowerC === true) {
     passArray = passArray.concat(lowerCase);
   }
@@ -39,12 +39,18 @@ function writePassword() {
     passArray = passArray.concat(sym);
   }
 
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  function generatePassword() {
+    var passwordText = "";
+    for (var i = 0; i < passwordLength; i++) {
+      passwordText += passArray[Math.floor(Math.random() * passArray.length)];
+    }
+    return passwordText;
+  }
 
-  passwordText.value = password;
+  var passwordTextField = document.querySelector("#password");
 
+  passwordTextField.value = generatePassword();
 }
 
-// Add event listener to generate button
+// Add event listener for user click to run function to writePassword
 generateBtn.addEventListener("click", writePassword);
