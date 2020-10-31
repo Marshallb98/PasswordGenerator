@@ -20,7 +20,12 @@ function writePassword() {
   } 
   else {
     return alert("ERROR Please enter a number between 8 and 128");    
-  
+  }
+  var lowerC = confirm("Do you want lowercase letters?");
+  var upperC = confirm("Do you want your password to have uppercase letters?");
+  var numC = confirm("Do you want your password to have numbers?");
+  var specialC = confirm("Do you want your password to have special characters?");
+
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
