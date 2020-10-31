@@ -1,1 +1,2 @@
 # PasswordGenerator
+    Creates a random password for user by prompting them a series of different questions including whether they want uppercase letters, lowercase letters, special characters, and numbers. By asking that then asking the length they want I created a password generator that will take those parameters and create a random password.
