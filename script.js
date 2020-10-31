@@ -9,10 +9,7 @@ var numbers = [0,1,2,3,4,5,6,7,8,9];
 // Write password to the #password input
 function writePassword() {
   
-  var upperCase = confirm("Do you want upper case letters in your password?")
-  if(upperCase){
-    password
-  }
+ 
   var passwordLength = prompt("Enter how long you want your password to be between 8-128 characters")
   
   passwordLength = parseInt(passwordLength);
@@ -24,7 +21,23 @@ function writePassword() {
   var lowerC = confirm("Do you want lowercase letters?");
   var upperC = confirm("Do you want your password to have uppercase letters?");
   var numC = confirm("Do you want your password to have numbers?");
-  var specialC = confirm("Do you want your password to have special characters?");
+  var symC = confirm("Do you want your password to have special characters?");
+
+  var passArray = [];
+  
+  
+  if (lowerC === true) {
+    passArray = passArray.concat(lowerCase);
+  }
+  if (upperC === true) {
+    passArray = passArray.concat(upperCase);
+  }
+  if (numC === true) {
+    passArray = passArray.concat(numbers);
+  }
+  if (symC === true) {
+    passArray = passArray.concat(sym);
+  }
 
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
