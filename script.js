@@ -8,12 +8,19 @@ var sym = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".",
 var numbers = [0,1,2,3,4,5,6,7,8,9];
 // Write password to the #password input
 function writePassword() {
-  var passwordLength = prompt("Enter how long you want your password to be between 8-128 characters")
-
+  
   var upperCase = confirm("Do you want upper case letters in your password?")
   if(upperCase){
     password
   }
+  var passwordLength = prompt("Enter how long you want your password to be between 8-128 characters")
+  
+  passwordLength = parseInt(passwordLength);
+  if (passwordLength >= 8 && passwordLength <= 128) {    
+  } 
+  else {
+    return alert("ERROR Please enter a number between 8 and 128");    
+  
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
